@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sample.Pattern
+namespace CQRS.Pattern
 {
-    public interface ICommand 
+    public interface ICommand
     {
-       
+
     }
 }

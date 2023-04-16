@@ -1,4 +1,4 @@
-﻿using Sample.Pattern;
+﻿using CQRS.Pattern;
 
 namespace Sample.Commands
 {
@@ -6,8 +6,8 @@ namespace Sample.Commands
     {
         public Task Handle(UserCommand userCommand)
         {
-            Console.WriteLine($"Query Handled Id: {userCommand.Id} ,Name:{userCommand.Name}");
-          return  Task.FromResult("Handled");
+            Console.WriteLine($"Store Handled Id: {userCommand.Id} ,Name:{userCommand.Name}");
+            return Task.FromResult("Handled");
         }
     }
 }

@@ -1,10 +1,8 @@
-﻿
-using CqrsInvolve.Pattern;
-using Sample.Pattern;
+﻿using CQRS.Pattern;
 using System;
 using System.Threading.Tasks;
 
-namespace Sample.Providers
+namespace CQRS.Providers
 {
     public class CQSScane
     {
@@ -29,6 +27,7 @@ namespace Sample.Providers
             dynamic result = handler.Handle((dynamic)command);
 
         }
+
         public async Task<T> Dispatch<T>(IQuery<T> query)
         {
             var type = typeof(IQueryHandler<,>);

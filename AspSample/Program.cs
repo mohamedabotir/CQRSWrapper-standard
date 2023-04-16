@@ -1,10 +1,9 @@
 
 using AspSample.Models;
 using AspSample.Queries;
-using CqrsInvolve.Pattern;
+using CQRS.Pattern;
+using CQRS.Providers;
 using Sample.Commands;
-using Sample.Pattern;
-using Sample.Providers;
 
 namespace AspSample
 {
@@ -17,11 +16,11 @@ namespace AspSample
             // Add services to the container.
 
             builder.Services.AddControllers();
-          
+
             builder.Services
              .AddTransient<ICommandHandler<UserCommand>, UserCommandHandler>();
             builder.Services
-             .AddTransient<IQueryHandler<GetUserList,UserDTO>, GetUserListHandler>();
+             .AddTransient<IQueryHandler<GetUserList, UserDTO>, GetUserListHandler>();
             builder.Services.AddSingleton<CQSScane>();
 
             builder.Services

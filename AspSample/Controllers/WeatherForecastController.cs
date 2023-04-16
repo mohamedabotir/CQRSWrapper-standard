@@ -1,8 +1,8 @@
-using AspSample.Models;
 using AspSample.Queries;
 using Microsoft.AspNetCore.Mvc;
+using CQRS;
+using CQRS.Providers;
 using Sample.Commands;
-using Sample.Providers;
 
 namespace AspSample.Controllers
 {
@@ -10,10 +10,10 @@ namespace AspSample.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private  readonly CQSScane _scane;
+        private readonly CQSScane _scane;
 
-       
-   
+
+
 
         private readonly ILogger<WeatherForecastController> _logger;
 
@@ -23,18 +23,13 @@ namespace AspSample.Controllers
             _scane = scane;
         }
 
-        [HttpGet]
-        [Route("GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpPost]
+        [Route(nameof(AddUser))]
+        public IActionResult AddUser(int id, string name)
         {
-            var command = new UserCommand {  Id=1, Name = "Mohamed" };
+            var command = new UserCommand { Id = id, Name = name };
             _scane.Dispatch(command);
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55)
-             })
-            .ToArray();
+            return Ok();
         }
         [HttpGet]
         [Route("GetUserWithId")]

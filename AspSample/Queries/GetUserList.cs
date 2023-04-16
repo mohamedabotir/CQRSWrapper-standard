@@ -1,9 +1,9 @@
 ﻿using AspSample.Models;
-using CqrsInvolve.Pattern;
+using CQRS.Pattern;
 
 namespace AspSample.Queries
 {
-    public class GetUserList:IQuery<UserDTO>
+    public class GetUserList : IQuery<UserDTO>
     {
         public int UserId { get; set; }
 
