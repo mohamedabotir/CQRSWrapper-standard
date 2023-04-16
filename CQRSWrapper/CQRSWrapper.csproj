@@ -2,7 +2,32 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>CQRSWrapper</PackageId>
+    <Title>CQRSWrapper</Title>
+    <Version>1.0.0</Version>
+    <Authors>mohamed abotir</Authors>
+    <Company>mohamed abotir</Company>
+    <Product>CQRSWrapper</Product>
+    <Description>package helps developer  to apply CQRS </Description>
+    <Copyright>copyright reserved to author © 2023</Copyright>
+    <PackageIcon>command-and-query-responsibility-segregation-cqrs-basic.png</PackageIcon>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>patterns;software engineering;productivity;design;abotir</PackageTags>
+    <PackageReleaseNotes>essential requirement 
+command and query datastore</PackageReleaseNotes>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <RepositoryUrl>https://github.com/mohamedabotir/CQRSWrapper-standard</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\icon\command-and-query-responsibility-segregation-cqrs-basic.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
