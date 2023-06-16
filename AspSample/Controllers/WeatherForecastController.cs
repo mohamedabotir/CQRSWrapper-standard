@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using CQRS;
 using CQRS.Providers;
 using Sample.Commands;
+using AspSample.Commands;
 
 namespace AspSample.Controllers
 {
@@ -37,6 +38,16 @@ namespace AspSample.Controllers
         {
             var query = new GetUserList(userId);
             return Ok(_scane.Dispatch(query));
+
+        }
+
+        [HttpGet]
+        [Route(nameof(SetUserJobTestRetries))]
+        public IActionResult SetUserJobTestRetries(int jobId,string jobName,bool isFaild)
+        {
+            var command = new JobIdCommand() { JobId = jobId, JobName = jobName,IsFail = isFaild };
+            _scane.Dispatch(command);
+            return Ok();
 
         }
 

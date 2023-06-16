@@ -1,8 +1,11 @@
 
+using AspSample.Commands;
 using AspSample.Models;
 using AspSample.Queries;
 using CQRS.Pattern;
 using CQRS.Providers;
+using CQRSWrapper.Decorator;
+using Microsoft.Extensions.DependencyInjection;
 using Sample.Commands;
 
 namespace AspSample
@@ -19,6 +22,12 @@ namespace AspSample
 
             builder.Services
              .AddTransient<ICommandHandler<UserCommand>, UserCommandHandler>();
+
+
+            builder.Services
+             .AddTransient<ICommandHandler<JobIdCommand>>
+             (op=>new DatabaseRetriesDecorator<JobIdCommand>(new JobCommadHandler()));
+
             builder.Services
              .AddTransient<IQueryHandler<GetUserList, UserDTO>, GetUserListHandler>();
             builder.Services.AddSingleton<CQSScane>();
